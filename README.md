@@ -6,7 +6,7 @@ Powered by: César Casas
 # Install & Run
 ## Install
 ```bash
-$ git clone https://github.com/lortmorris/restfulmodel.git
+$ git clone https://github.com/crisovando/restfulmodel.git
 $ npm install
 $ node bin/www
 ```
