@@ -19,6 +19,7 @@ const debug = require('debug')('restfulmodel:app');
 const mongojs = require('mongojs');
 const redisSentinel = require('redis-sentinel');
 const redis = require('redis');
+const currency = require('./lib/currency');
 
 /**
  * Build the main application
@@ -215,6 +216,7 @@ app.prototype.libs = function () {
 		self.main.libs = {};
 		self.main.libs.http = http;
 		self.main.libs.moment = moment;
+		self.main.libs.currency = new currency(self.main);
 
 		resolve(self.main.libs);
 	});

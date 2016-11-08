@@ -76,14 +76,14 @@ function makeControllers(main) {
 	let controllers = {
 		'about': require("./about")(main),
 		'server': require('./server')(main),
-		'currency': requiere("./currency")(main)
+		'currency': require("./currency")(main)
 	};
 
 
 	return wrapControllers({
 		'about.about_get': controllers.about.about,
 		'server.time_get': controllers.server.time,
-		'currency.buscar_get': controllers.currency.buscar
+		'currency.search_get': controllers.currency.search
 
 	}, main.announce);
 }

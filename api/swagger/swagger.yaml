@@ -43,7 +43,7 @@ paths:
         tags:
           - currency
         summary: Busca Currency
-        x-swagger-router-controller: currency.buscar
+        x-swagger-router-controller: currency.search_get
         parameters:
           - name: find
             in: query
