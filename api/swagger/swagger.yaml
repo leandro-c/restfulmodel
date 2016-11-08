@@ -94,6 +94,30 @@ paths:
             schema:
               $ref: '#/definitions/currency'
 
+      patch:
+        tags:
+          - currency
+        summary: Realiza un Update
+        x-swagger-router-controller: currency.update
+        parameters:
+          - name: id
+            in: query
+            required: true
+            type: string
+          - name: simbolo
+            in: query
+            required: false
+            type: string
+          - name: descrip
+            in: query
+            required: false
+            type: string
+        responses:
+          '200':
+            description: Currency
+            schema:
+              $ref: '#/definitions/currency'
+
 definitions:
   currency:
     type: object

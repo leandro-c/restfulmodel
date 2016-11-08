@@ -3,6 +3,7 @@
 
 const debug = require('debug')("restful:controllers:currency");
 
+
 function Currency(main) {
     debug("init...");
 
@@ -49,6 +50,19 @@ function Currency(main) {
             }else{
                 next(new Error("debe ingresar un id"));
             }
+        },
+        'update':(req,res,next)=>{
+            let id = req.swagger.params.id ? req.swagger.params.id.value : null;
+            let simbolo = req.swagger.params.simbolo ? req.swagger.params.simbolo.value : null;
+            let descrip = req.swagger.params.descrip ? req.swagger.params.descrip.value : null;
+
+            main.libs.currency.update(id,simbolo,descrip)
+                .then(busqueda =>{
+                    res.json(busqueda);
+                })
+                .catch(err => {
+                    next(err);
+                })
         }
     };
 }
