@@ -49,6 +49,10 @@ paths:
             in: query
             required: false
             type: string
+          - name: limit
+            in: query
+            required: false
+            type: number
         responses:
           '200':
             description: Currency
@@ -59,9 +63,9 @@ definitions:
   currency:
     type: object
     properties:
-      version:
+      Codi:
         type: string
-      name:
+      Descrip:
         type: string
   about:
     type: object

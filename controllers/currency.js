@@ -7,13 +7,19 @@ function Currency(main) {
     debug("init...");
 
     return {
-        'buscar': (req, res, next)=> {
-            let  find = req.swagger.params.find ? req.swagger.params.find.value : null;
+        'search': (req, res, next)=> {
+            debug(".currency.search called");
 
-            res.json({
-                'name': name,
-                'version': '1.0'
-            })
+            let find = req.swagger.params.find ? req.swagger.params.find.value : null;
+            let limit = req.swagger.params.limit ? req.swagger.params.limit.value : 100;
+            main.libs.currency.search(find, limit)
+                .then(busquedas => {
+                    res.json(busquedas);
+                })
+                .catch(err => {
+                    debug(".currency.search.error: " + err);
+                    next(err);
+                });
         }
     };
 }
