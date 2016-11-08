@@ -38,8 +38,31 @@ paths:
           schema:
             $ref: '#/definitions/about'
 
+  /currency:
+      get:
+        tags:
+          - currency
+        summary: Busca Currency
+        x-swagger-router-controller: currency.buscar
+        parameters:
+          - name: find
+            in: query
+            required: false
+            type: string
+        responses:
+          '200':
+            description: Currency
+            schema:
+              $ref: '#/definitions/currency'
 
 definitions:
+  currency:
+    type: object
+    properties:
+      version:
+        type: string
+      name:
+        type: string
   about:
     type: object
     properties:
