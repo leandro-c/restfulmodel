@@ -80,14 +80,11 @@ paths:
         summary: Inserta en Currency
         x-swagger-router-controller: currency.insert
         parameters:
-          - name: simbolo
-            in: query
-            required: false
-            type: string
-          - name: descrip
-            in: query
-            required: false
-            type: string
+          - name: currency
+            in: body
+            required: true
+            schema:
+              $ref: '#/definitions/currency'
         responses:
           '200':
             description: Currency

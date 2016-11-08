@@ -24,9 +24,9 @@ function Currency(main) {
         },
         'insert': (req , res , next)=> {
           debug(".account.insert called");
-            let simbolo = req.swagger.params.simbolo ? req.swagger.params.simbolo.value : null;
-            let descrip = req.swagger.params.descrip ? req.swagger.params.descrip.value : null;
-            main.libs.currency.insert(simbolo,descrip)
+            let currency = req.swagger.params.currency ? req.swagger.params.currency.value : null;
+
+            main.libs.currency.insert(currency)
                 .then(busqueda =>{
                     res.json(busqueda);
                 })
