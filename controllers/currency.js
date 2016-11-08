@@ -3,6 +3,7 @@
 
 const debug = require('debug')("restful:controllers:currency");
 
+
 function Currency(main) {
     debug("init...");
 
@@ -20,7 +21,19 @@ function Currency(main) {
                     debug(".currency.search.error: " + err);
                     next(err);
                 });
-        }
+        },
+        'insert': (req , res , next)=> {
+          debug(".account.insert called");
+            let simbolo = req.swagger.params.simbolo ? req.swagger.params.simbolo.value : null;
+            let descrip = req.swagger.params.descrip ? req.swagger.params.descrip.value : null;
+            main.libs.currency.insert(simbolo,descrip)
+                .then(busqueda =>{
+                    res.json(busqueda);
+                })
+                .catch(err => {
+                    next(err);
+                })
+        },
     };
 }
 

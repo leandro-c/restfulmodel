@@ -83,7 +83,8 @@ function makeControllers(main) {
 	return wrapControllers({
 		'about.about_get': controllers.about.about,
 		'server.time_get': controllers.server.time,
-		'currency.search_get': controllers.currency.search
+		'currency.search_get': controllers.currency.search,
+		'currency.insert_put': controllers.currency.insert
 
 	}, main.announce);
 }
