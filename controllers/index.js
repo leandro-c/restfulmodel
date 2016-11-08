@@ -84,8 +84,8 @@ function makeControllers(main) {
 		'about.about_get': controllers.about.about,
 		'server.time_get': controllers.server.time,
 		'currency.search_get': controllers.currency.search,
-		'currency.insert_put': controllers.currency.insert
-
+		'currency.insert_put': controllers.currency.insert,
+		'currency.remove_delete': controllers.currency.remove
 	}, main.announce);
 }
 

@@ -39,13 +39,32 @@ paths:
             $ref: '#/definitions/about'
 
   /currency:
+      delete:
+        tags:
+          - currency
+        summary: Eliminar Currency
+        x-swagger-router-controller: currency.remove
+        parameters:
+          - name: id
+            in: query
+            required: false
+            type: string
+        responses:
+          '200':
+            description: Currency
+            schema:
+              $ref: '#/definitions/currency'
       get:
         tags:
           - currency
         summary: Busca Currency
-        x-swagger-router-controller: currency.search_get
+        x-swagger-router-controller: currency.search
         parameters:
-          - name: find
+          - name: simbolo
+            in: query
+            required: false
+            type: string
+          - name: descrip
             in: query
             required: false
             type: string
