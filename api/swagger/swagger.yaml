@@ -60,11 +60,7 @@ paths:
         summary: Busca Currency
         x-swagger-router-controller: currency.search
         parameters:
-          - name: simbolo
-            in: query
-            required: false
-            type: string
-          - name: descrip
+          - name: q
             in: query
             required: false
             type: string

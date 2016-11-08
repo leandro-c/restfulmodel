@@ -11,9 +11,8 @@ function Currency(main) {
         'search': (req, res, next)=> {
             debug(".currency.search called");
 
-            let simbolo = req.swagger.params.simbolo ? req.swagger.params.simbolo.value : null;
-            let descrip = req.swagger.params.descrip ? req.swagger.params.descrip.value : null;
-            main.libs.currency.search(simbolo, descrip)
+            let q = req.swagger.params.q ? req.swagger.params.q.value : null;
+            main.libs.currency.search(q)
                 .then(busquedas => {
                     res.json(busquedas);
                 })
