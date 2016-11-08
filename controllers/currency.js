@@ -52,11 +52,9 @@ function Currency(main) {
             }
         },
         'update':(req,res,next)=>{
-            let id = req.swagger.params.id ? req.swagger.params.id.value : null;
-            let simbolo = req.swagger.params.simbolo ? req.swagger.params.simbolo.value : null;
-            let descrip = req.swagger.params.descrip ? req.swagger.params.descrip.value : null;
+            let currency = req.swagger.params.currency ? req.swagger.params.currency.value : null;
 
-            main.libs.currency.update(id,simbolo,descrip)
+            main.libs.currency.update(currency)
                 .then(busqueda =>{
                     res.json(busqueda);
                 })

@@ -100,18 +100,11 @@ paths:
         summary: Realiza un Update
         x-swagger-router-controller: currency.update
         parameters:
-          - name: id
-            in: query
+          - name: currency
+            in: body
             required: true
-            type: string
-          - name: simbolo
-            in: query
-            required: false
-            type: string
-          - name: descrip
-            in: query
-            required: false
-            type: string
+            schema:
+              $ref: '#/definitions/currency'
         responses:
           '200':
             description: Currency
@@ -122,7 +115,9 @@ definitions:
   currency:
     type: object
     properties:
-      Codi:
+      _Id:
+        type: string
+      Simbolo:
         type: string
       Descrip:
         type: string
