@@ -47,7 +47,7 @@ paths:
         parameters:
           - name: id
             in: query
-            required: false
+            required: true
             type: string
         responses:
           '200':
@@ -68,10 +68,6 @@ paths:
             in: query
             required: false
             type: string
-          - name: limit
-            in: query
-            required: false
-            type: number
         responses:
           '200':
             description: Currency

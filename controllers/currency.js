@@ -12,8 +12,7 @@ function Currency(main) {
 
             let simbolo = req.swagger.params.simbolo ? req.swagger.params.simbolo.value : null;
             let descrip = req.swagger.params.descrip ? req.swagger.params.descrip.value : null;
-            let limit = req.swagger.params.limit ? req.swagger.params.limit.value : 100;
-            main.libs.currency.search(simbolo, descrip, limit)
+            main.libs.currency.search(simbolo, descrip)
                 .then(busquedas => {
                     res.json(busquedas);
                 })
