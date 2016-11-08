@@ -110,9 +110,9 @@ definitions:
     properties:
       _Id:
         type: string
-      Simbolo:
+      Currency:
         type: string
-      Descrip:
+      Description:
         type: string
   about:
     type: object
