@@ -124,8 +124,6 @@ definitions:
         type: string
       Description:
         type: string
-      Exchange:
-        type: number
   about:
     type: object
     properties:
