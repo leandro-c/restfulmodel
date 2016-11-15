@@ -37,7 +37,17 @@ paths:
           description: About
           schema:
             $ref: '#/definitions/about'
-
+  /currency/Exchange:
+      get:
+        tags:
+          - Exchange Currency
+        summary: UPDATE Exchange Currency
+        x-swagger-router-controller: currency.getExchange
+        responses:
+          '200':
+            description: Currency
+            schema:
+              $ref: '#/definitions/currency'
   /currency:
       delete:
         tags:

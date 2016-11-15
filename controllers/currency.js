@@ -61,17 +61,14 @@ function Currency(main) {
                     next(err);
                 })
         },
-        'getExchangeRate':(req,res,next)=>{
-            let currency = req.swagger.params.currency ? req.swagger.params.currency.value : null;
-            main.libs.currency.getExchangeRate(currency)
-                .then(busquedas => {
-                    res.json(busquedas);
-                })
-                .catch(err => {
-                    debug(".currency.getExchangeRate.error: " + err);
-                    next(err);
-                });
-
+        'getExchange':(req,res,next)=>{
+            try{
+                main.libs.currency.getExchangeRate();
+                res.json({"ok": 1});
+            }catch(err){
+                debug(".currency.getExchangeRate.error: " + err);
+                next(err);
+            }
         }
     };
 }
