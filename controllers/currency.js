@@ -62,13 +62,13 @@ function Currency(main) {
                 })
         },
         'getExchange':(req,res,next)=>{
-            try{
-                main.libs.currency.getExchangeRate();
-                res.json({"ok": 1});
-            }catch(err){
-                debug(".currency.getExchangeRate.error: " + err);
-                next(err);
-            }
+                main.libs.currency.getExchangeRate()
+                    .then(busqueda =>{
+                        res.json(busqueda);
+                    })
+                    .catch(err => {
+                        next(err);
+                    })
         }
     };
 }
