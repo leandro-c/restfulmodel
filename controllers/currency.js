@@ -60,6 +60,18 @@ function Currency(main) {
                 .catch(err => {
                     next(err);
                 })
+        },
+        'getExchangeRate':(req,res,next)=>{
+            let currency = req.swagger.params.currency ? req.swagger.params.currency.value : null;
+            main.libs.currency.getExchangeRate(currency)
+                .then(busquedas => {
+                    res.json(busquedas);
+                })
+                .catch(err => {
+                    debug(".currency.getExchangeRate.error: " + err);
+                    next(err);
+                });
+
         }
     };
 }
